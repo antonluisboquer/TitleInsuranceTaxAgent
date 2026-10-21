@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "document_type": "Tax Summary",
+  "description": "Property tax summary/certificate",
+  "verification_field": "annual_taxes",
+  "verification_description": "Annual tax amount - if not found, this is not a tax summary",
+  "bucket_names": [
+    "Tax Summary",
+    "Property Tax",
+    "Tax Certificate"
+  ],
+  "attachment_keywords": ["tax summary", "property tax", "tax"],
+  "attachment_avoid": ["return", "1040", "irs", "w-2"],
+  "fields_provided": [
+    "annual_taxes",
+    "tax_parcel_number",
+    "property_address"
+  ],
+  "properties": {
+    "annual_taxes": {
+      "type": "number",
+      "description": "Annual property tax amount (REQUIRED for verification)"
+    },
+    "tax_parcel_number": {
+      "type": "string",
+      "description": "Tax parcel/APN number"
+    },
+    "property_address": {
+      "type": "string",
+      "description": "Property address"
+    },
+    "tax_year": {
+      "type": "string",
+      "description": "Tax year"
+    },
+    "monthly_taxes": {
+      "type": "number",
+      "description": "Monthly tax amount for escrow"
+    },
+    "millage_rate": {
+      "type": "number",
+      "description": "Tax millage/mill rate confirmed by the Title Company, if stated (used for New Construction tax calcs, RM Job Aid p.14)"
+    },
+    "assessed_value": {
+      "type": "number",
+      "description": "Assessed value used to calculate the tax bill"
+    },
+    "due_date": {
+      "type": "string",
+      "description": "Next tax installment due date"
+    },
+    "is_delinquent_60_plus_days": {
+      "type": "boolean",
+      "description": "True if taxes are 60+ days delinquent (must be listed as a payoff, not in Section 900, per RM Job Aid p.14)"
+    },
+    "exemptions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Exemptions listed on the tax bill (e.g. 'homestead' for the prior owner) — must be excluded from a purchaser's tax estimate unless the buyer also qualifies (RM Job Aid p.14)"
+    }
+  },
+  "required": ["annual_taxes"]
+}
+
+

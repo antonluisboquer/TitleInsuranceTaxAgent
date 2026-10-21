@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "document_type": "Evidence of Insurance",
+  "description": "Evidence of hazard/homeowners insurance",
+  "verification_field": "policy_number",
+  "verification_description": "Insurance policy number - if not found, this is not evidence of insurance",
+  "bucket_names": [
+    "Evidence of Hazard Insurance",
+    "Evidence of Insurance",
+    "HOI",
+    "Homeowners Insurance"
+  ],
+  "attachment_keywords": ["evidence of ins", "insurance binder", "hazard", "homeowner", "hartford", "dwelling"],
+  "attachment_avoid": ["flood", "mortgage insurance", "authorization", "disclosure"],
+  "fields_provided": [],
+  "properties": {
+    "policy_number": {
+      "type": "string",
+      "description": "Insurance policy number (REQUIRED for verification)"
+    },
+    "hazard_insurance_premium": {
+      "type": "number",
+      "description": "Annual premium amount"
+    },
+    "hazard_insurance_company": {
+      "type": "string",
+      "description": "Insurance company name"
+    },
+    "hazard_insurance_contact": {
+      "type": "string",
+      "description": "Agent/contact name"
+    },
+    "hazard_insurance_agent_email": {
+      "type": "string",
+      "description": "Agent email"
+    },
+    "proposed_hazard_insurance": {
+      "type": "number",
+      "description": "Monthly insurance amount for escrow"
+    },
+    "coverage_amount": {
+      "type": "number",
+      "description": "Dwelling coverage amount"
+    },
+    "effective_date": {
+      "type": "string",
+      "description": "Policy effective date"
+    },
+    "expiration_date": {
+      "type": "string",
+      "description": "Policy expiration date"
+    },
+    "deductible": {
+      "type": "number",
+      "description": "Policy deductible"
+    },
+    "proposed_insured_name": {
+      "type": "string",
+      "description": "Named insured on the policy (must match borrower name or entity exactly, RM Job Aid p.13)"
+    },
+    "loss_payee_clause": {
+      "type": "string",
+      "description": "Loss payee / mortgagee clause text printed on the declaration page"
+    },
+    "wind_hail_hurricane_included": {
+      "type": "string",
+      "description": "Whether the policy includes Wind/Hail/Hurricane coverage via a special form or 'all perils' language, or explicitly excludes it (RM Job Aid p.13, J-T5). Expected values: 'included', 'excluded', or a description of the form type."
+    },
+    "dscr_rent_loss_coverage_type": {
+      "type": "string",
+      "description": "For DSCR loans only: the type of rent-loss coverage on the policy — 'scheduled_rent' (required, up to 6 months PITIA) or 'actual_loss_sustained' (NOT acceptable per RM Job Aid p.13, J-T7)"
+    },
+    "dscr_rent_loss_months": {
+      "type": "number",
+      "description": "For DSCR loans only: number of months of rent-loss/PITIA coverage on the policy"
+    },
+    "is_ho6_policy": {
+      "type": "boolean",
+      "description": "True if this is an HO6 (walls-in) condo policy rather than a standard HOI policy"
+    },
+    "ho6_dwelling_coverage_amount": {
+      "type": "number",
+      "description": "HO6 policy's dwelling coverage amount (walls-in coverage), if is_ho6_policy is true"
+    },
+    "replacement_cost": {
+      "type": "number",
+      "description": "Replacement cost of the insured dwelling as stated on the declaration page, used to complete the 'lesser of loan amount or replacement cost' HOI coverage rule (RM Job Aid p.13) instead of the loan-amount-only proxy. Present in LG-docsOrch's production Evidence of Insurance extraction schema but never modeled here previously."
+    }
+  },
+  "required": ["policy_number"]
+}
+

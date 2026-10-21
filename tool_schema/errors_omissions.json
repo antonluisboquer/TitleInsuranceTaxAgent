@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "document_type": "Errors & Omissions Policy",
+  "description": "Title/settlement agent's Errors & Omissions (E&O) insurance policy",
+  "verification_field": "agent_name",
+  "verification_description": "Agent name on the E&O policy - if not found, this is not an E&O document",
+  "bucket_names": [
+    "Property: Title Company Documents",
+    "E&O",
+    "Errors and Omissions"
+  ],
+  "attachment_keywords": ["errors and omissions", "e&o policy", "e & o"],
+  "attachment_avoid": ["wire", "cpl", "closing protection"],
+  "fields_provided": [],
+  "properties": {
+    "agent_name": {
+      "type": "string",
+      "description": "Name of the title/settlement agent covered by the E&O policy (REQUIRED for verification)"
+    },
+    "coverage_amount": {
+      "type": "number",
+      "description": "E&O policy coverage amount"
+    },
+    "is_attorney": {
+      "type": "boolean",
+      "description": "True if the covered agent is an attorney (lowers the minimum coverage requirement to $500K, RM Job Aid p.17)"
+    },
+    "effective_date": {
+      "type": "string",
+      "description": "E&O policy effective date"
+    },
+    "expiration_date": {
+      "type": "string",
+      "description": "E&O policy expiration date"
+    }
+  },
+  "required": ["agent_name"]
+}

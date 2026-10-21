@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "document_type": "Closing Protection Letter",
+  "description": "Title company's Closing Protection Letter (CPL)",
+  "verification_field": "agent_name",
+  "verification_description": "Title agent name on the CPL - if not found, this is not a CPL",
+  "bucket_names": [
+    "Property: Title Company to Provide CPL",
+    "CPL",
+    "Closing Protection Letter"
+  ],
+  "attachment_keywords": ["closing protection letter", "cpl", "insured closing"],
+  "attachment_avoid": ["wire", "e&o", "errors and omissions"],
+  "fields_provided": [],
+  "properties": {
+    "agent_name": {
+      "type": "string",
+      "description": "Name of the title/settlement agent named on the CPL (REQUIRED for verification)"
+    },
+    "loan_number": {
+      "type": "string",
+      "description": "Loan number referenced on the CPL"
+    },
+    "borrower_name": {
+      "type": "string",
+      "description": "Borrower or entity name per vesting"
+    },
+    "mortgagee_clause": {
+      "type": "string",
+      "description": "Mortgagee / ISAOA-ATIMA clause text on the CPL"
+    },
+    "effective_date": {
+      "type": "string",
+      "description": "CPL effective date"
+    },
+    "expiration_date": {
+      "type": "string",
+      "description": "CPL expiration date, if stated"
+    }
+  },
+  "required": ["agent_name"]
+}

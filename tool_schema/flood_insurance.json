@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "document_type": "Flood Insurance",
+  "description": "Flood insurance policy document",
+  "verification_field": "flood_insurance_premium",
+  "verification_description": "Flood insurance premium - if not found, this is not a flood insurance policy",
+  "bucket_names": [
+    "Flood Insurance",
+    "Flood Insurance Policy"
+  ],
+  "attachment_keywords": ["flood insurance", "flood policy", "nfip policy", "flood coverage"],
+  "attachment_avoid": ["certificate", "determination", "zone"],
+  "fields_provided": [],
+  "properties": {
+    "flood_insurance_premium": {
+      "type": "number",
+      "description": "Annual flood insurance premium (REQUIRED for verification)"
+    },
+    "flood_insurance_per_month": {
+      "type": "number",
+      "description": "Monthly flood insurance cost"
+    },
+    "flood_insurance_coverage": {
+      "type": "number",
+      "description": "Flood insurance coverage amount"
+    },
+    "policy_number": {
+      "type": "string",
+      "description": "Flood insurance policy number"
+    },
+    "effective_date": {
+      "type": "string",
+      "description": "Policy effective date"
+    },
+    "expiration_date": {
+      "type": "string",
+      "description": "Policy expiration date"
+    },
+    "deductible": {
+      "type": "number",
+      "description": "Flood policy deductible"
+    },
+    "replacement_cost_of_improvements": {
+      "type": "number",
+      "description": "Replacement cost of the insured improvements, used for the 'lesser of 3' flood coverage rule (RM Job Aid p.13, J-T6)"
+    },
+    "in_sfha": {
+      "type": "boolean",
+      "description": "Whether the property is in a Special Flood Hazard Area (SFHA) per the flood zone determination. Found in LG-docsOrch's production Flood Certificate/Insurance extraction schema but never modeled here; lets flood-insurance-required-or-not be derived from the document itself instead of needing an externally-supplied loan_context['is_flood_zone'] flag."
+    }
+  },
+  "required": ["flood_insurance_premium"]
+}
+

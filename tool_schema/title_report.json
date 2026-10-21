@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "document_type": "Title Report",
+  "description": "Preliminary title report / title commitment",
+  "verification_field": "title_number",
+  "verification_description": "Title/order number - if not found, this is not a title report",
+  "bucket_names": [
+    "Title Report",
+    "Prelim",
+    "Preliminary Title",
+    "Title Commitment"
+  ],
+  "attachment_keywords": ["title report", "preliminary title", "prelim title", "title commitment"],
+  "attachment_avoid": ["notice", "wire", "closing protection", "deed", "plat", "proposed"],
+  "fields_provided": [
+    "property_address",
+    "seller_name"
+  ],
+  "properties": {
+    "title_number": {
+      "type": "string",
+      "description": "Title/order number (REQUIRED for verification)"
+    },
+    "property_address": {
+      "type": "string",
+      "description": "Property address"
+    },
+    "seller_name": {
+      "type": "string",
+      "description": "Current property owner / seller name"
+    },
+    "legal_description": {
+      "type": "string",
+      "description": "Legal description of property"
+    },
+    "vesting_type": {
+      "type": "string",
+      "description": "How title is/will be held"
+    },
+    "title_company": {
+      "type": "string",
+      "description": "Title company name"
+    },
+    "effective_date": {
+      "type": "string",
+      "description": "Effective date of title report"
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Title exceptions/encumbrances"
+    },
+    "title_report_date": {
+      "type": "string",
+      "description": "Date of title report/commitment"
+    },
+    "settlement_agent_name": {
+      "type": "string",
+      "description": "Name of settlement agent/title officer"
+    }
+  },
+  "required": ["title_number"]
+}
+

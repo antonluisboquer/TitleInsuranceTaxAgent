@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "document_type": "Insurance Premium Receipt / Invoice",
+  "description": "Paid receipt or invoice evidencing that an insurance premium has been paid in full, or is due at closing (RM Job Aid p.13, J-T3)",
+  "verification_field": "amount",
+  "verification_description": "Dollar amount on the receipt/invoice - if not found, this is not a premium receipt/invoice",
+  "bucket_names": [
+    "Evidence of Hazard Insurance",
+    "Flood Insurance",
+    "Insurance Invoice",
+    "Insurance Receipt"
+  ],
+  "attachment_keywords": ["paid receipt", "invoice", "premium due", "paid in full"],
+  "attachment_avoid": ["declaration page", "policy"],
+  "fields_provided": [],
+  "properties": {
+    "amount": {
+      "type": "number",
+      "description": "Dollar amount shown as paid or due (REQUIRED for verification)"
+    },
+    "paid_in_full": {
+      "type": "boolean",
+      "description": "True if the document is a paid receipt showing the premium was already paid in full; false if it is an invoice for an amount due at closing"
+    },
+    "document_date": {
+      "type": "string",
+      "description": "Date the receipt was issued or the invoice is dated"
+    },
+    "policy_number": {
+      "type": "string",
+      "description": "Policy number the receipt/invoice applies to"
+    }
+  },
+  "required": ["amount"]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "document_type": "Wire Instructions",
+  "description": "Title/escrow company's wiring instructions for closing funds. Never modeled in LG-discOrch, LG-docsOrch, or lg-RMOrch prior to this (architecture doc item J-T11) — new schema, relevant for wire-fraud prevention.",
+  "verification_field": "beneficiary_name",
+  "verification_description": "Wire beneficiary name - if not found, this is not a wire instructions document",
+  "bucket_names": [
+    "Property: Title Company Documents",
+    "Wire Instructions",
+    "Wiring Instructions"
+  ],
+  "attachment_keywords": ["wire instructions", "wiring instructions", "wire transfer"],
+  "attachment_avoid": ["e&o", "cpl", "closing protection"],
+  "fields_provided": [],
+  "properties": {
+    "beneficiary_name": {
+      "type": "string",
+      "description": "Beneficiary name on the wire instructions (REQUIRED for verification). Should match the title/settlement agent named on the title commitment — this is the core wire-fraud check (RM Job Aid p.17, J-T11)."
+    },
+    "bank_name": {
+      "type": "string",
+      "description": "Receiving bank name"
+    },
+    "routing_number": {
+      "type": "string",
+      "description": "Bank routing number"
+    },
+    "account_number_last4": {
+      "type": "string",
+      "description": "Last 4 digits of the account number (do not extract the full account number)"
+    },
+    "issued_date": {
+      "type": "string",
+      "description": "Date the wire instructions were issued"
+    }
+  },
+  "required": ["beneficiary_name"]
+}
